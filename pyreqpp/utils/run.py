@@ -5,6 +5,7 @@ import string
 import subprocess
 import tempfile
 
+
 def run_cmd(cmd_str):
     subprocess.call(cmd_str.split(" "))
 

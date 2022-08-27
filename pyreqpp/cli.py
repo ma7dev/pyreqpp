@@ -4,8 +4,8 @@ import os
 
 import typer
 
-from .utils import check
 from . import __doc__, __name__
+from .utils import check
 
 app = typer.Typer(name=__name__, add_completion=True)
 
