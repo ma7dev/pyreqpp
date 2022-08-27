@@ -17,8 +17,12 @@ sys.path.append(str(VENDOR_PATH))
 #: For more info: https://github.com/hadialqattan/pycln/issues/54
 UTF8 = "utf-8"
 if "pytest" not in sys.modules:
-    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding=UTF8)  # pragma: nocover
-    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding=UTF8)  # pragma: nocover
+    sys.stdout = io.TextIOWrapper(
+        sys.stdout.buffer, encoding=UTF8
+    )  # pragma: nocover
+    sys.stderr = io.TextIOWrapper(
+        sys.stderr.buffer, encoding=UTF8
+    )  # pragma: nocover
 
 ISWIN = os.name == "nt"
 PYPROJECT_PATH = Path(__file__).parent.parent.joinpath("pyproject.toml")

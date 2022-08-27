@@ -1,17 +1,66 @@
 [tool.poetry]
 name = "pyreqpp"
-version = "0.1.0"
+version = "0.1.1"
 description = "Takes requirements.txt file without module versions and annotates it with the latest set of module versions that won't result in build/runtime errors."
 authors = ["sudomaze <sudomaze@gmail.com>"]
 license = "MIT"
-
+homepage = "https://github.com/sudomaze/pyreqpp"
+repository = "https://github.com/sudomaze/pyreqpp"
+# NOTE(sudomaze): set of classifiers is taken from https://pypi.org/classifiers/
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3.8",
+]
 [tool.poetry.dependencies]
 python = "^3.8.13"
 typer = "^0.6.1"
-pytest = "^7.1.2"
 tomlkit = "^0.11.4"
 
 [tool.poetry.dev-dependencies]
+pytest = "^7.1.1"
+black = "^22.3.0"
+mypy = "^0.961"
+pre-commit = "^2.19.0"
+isort = "^5.10.1"
+pre-commit-hooks = "^4.3.0"
+pycln = "^2.0.1"
+
+[tool.mypy]
+files = ["^pyreqpp/"]
+pretty = true
+strict = true
+# show_error_codes = true
+enable_error_code = ["ignore-without-code", "redundant-expr", "truthy-bool"]
+# ignore_missing_imports = true
+exclude = "(/tests/)|(/docs/)|(/examples/)"
+
+[tool.pytest]
+# log_cli = true
+addopts = [
+    # show summary of all tests that did not pass
+    "-ra",
+    # idk
+    "-s",
+    # Make tracebacks shorter
+    "--tb=native",
+    # enable all warnings
+    "-Wd",
+]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.isort]
+profile = "black"
+line_length = 79
+
+[tool.black]
+line-length = 79 # override the default of 88
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

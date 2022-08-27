@@ -1,0 +1,7 @@
+- id: pyrqpp
+  name: pyrqpp
+  description: "A requirements.txt checker and modifier"
+  entry: pyrqpp
+  language: python
+  language_version: python3
+  types: [python]
