@@ -1,0 +1,6 @@
+.hypothesis
+.vscode
+.pytest
+.pytest_cache
+__pycache__
+poetry.lock

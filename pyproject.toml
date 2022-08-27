@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "pyreqpp"
+version = "0.1.0"
+description = "Takes requirements.txt file without module versions and annotates it with the latest set of module versions that won't result in build/runtime errors."
+authors = ["sudomaze <sudomaze@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8.13"
+typer = "^0.6.1"
+pytest = "^7.1.2"
+tomlkit = "^0.11.4"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
